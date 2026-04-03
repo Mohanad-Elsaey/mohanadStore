@@ -1,0 +1,21 @@
+InfinityFree Deployment Instructions:
+
+1. In InfinityFree File Manager, navigate to your root directory (the folder containing "htdocs").
+2. Upload the contents of the "core" folder (the folder itself, or its contents depending on your structure) to the root directory (so it sits next to "htdocs"). Let's create a folder called "core" in InfinityFree and put everything inside it.
+3. Upload the contents of "htdocs" folder from this deploy folder INTO the "htdocs" folder on InfinityFree.
+4. Rename `core/.env` to include your InfinityFree database credentials (DB_DATABASE, DB_USERNAME, DB_PASSWORD) and set `APP_ENV=production`, `APP_DEBUG=false`, and `APP_URL` to your domain.
+
+Structure on InfinityFree should look like this:
+/
+|-- core/
+|   |-- app/
+|   |-- bootstrap/
+|   |-- config/
+|   |-- vendor/
+|   |-- .env
+|-- htdocs/
+|   |-- index.php
+|   |-- build/ (React files)
+|   |-- .htaccess
+
+NOTE: It's recommended to upload files using FileZilla because InfinityFree's web file manager has a 10MB limit per file and unzipping large folders might fail.
