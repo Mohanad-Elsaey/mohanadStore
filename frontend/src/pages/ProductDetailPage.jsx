@@ -184,11 +184,11 @@ const ProductDetailPage = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
                     {/* Image Gallery (Editorial Asymmetry) */}
                     <div className="lg:col-span-6 space-y-8 relative">
-                        <div className="aspect-[4/5] bg-surface-container-low overflow-hidden rounded-xl">
+                        <div className="bg-surface-container-low overflow-hidden rounded-xl flex items-center justify-center min-h-[400px]">
                             <img 
                                 src={activeImage} 
                                 alt={product.name} 
-                                className="w-full h-full object-cover object-top hover:scale-[1.02] transition-transform duration-700" 
+                                className="w-full h-auto max-h-[80vh] object-contain hover:scale-[1.02] transition-transform duration-700" 
                             />
                         </div>
                         {images.length > 1 && (
@@ -197,9 +197,9 @@ const ProductDetailPage = () => {
                                     <button 
                                         key={i}
                                         onClick={() => setActiveImageIndex(i)}
-                                        className={`w-20 h-24 shrink-0 rounded-lg overflow-hidden border-2 transition-all ${activeImageIndex === i ? 'border-primary' : 'border-transparent hover:border-outline-variant'}`}
+                                        className={`w-20 h-24 shrink-0 rounded-lg overflow-hidden border-2 transition-all bg-surface-container-low ${activeImageIndex === i ? 'border-primary' : 'border-transparent hover:border-outline-variant'}`}
                                     >
-                                        <img src={img.image_path} className="w-full h-full object-cover" alt={`Thumbnail ${i+1}`} />
+                                        <img src={img.image_path} className="w-full h-full object-contain" alt={`Thumbnail ${i+1}`} />
                                     </button>
                                 ))}
                             </div>
@@ -359,7 +359,7 @@ const ProductDetailPage = () => {
                         <div key={p.id} className={`group cursor-pointer ${idx % 2 !== 0 ? 'translate-y-8 lg:translate-y-12' : ''}`} onClick={() => navigate(`/product/${p.slug}`)}>
                             <div className="aspect-[3/4] overflow-hidden rounded-xl bg-surface-container mb-6 relative">
                                 <img 
-                                    src={p.image_url || 'https://via.placeholder.com/400x500'} 
+                                    src={p.image_url || "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='500' fill='%23dde4e5'%3E%3Crect width='400' height='500' rx='8'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23adb3b4' font-size='16' font-family='sans-serif'%3ENo Image%3C/text%3E%3C/svg%3E"} 
                                     alt={p.name} 
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                                 />

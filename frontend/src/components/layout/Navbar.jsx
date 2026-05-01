@@ -45,8 +45,8 @@ const Navbar = () => {
         </button>
 
         {/* Logo */}
-        <Link to="/" className="text-2xl font-black tracking-tighter uppercase text-slate-950 select-none italic">
-          MOHANAD
+        <Link to="/" className="text-2xl font-black tracking-tighter text-slate-950 select-none italic">
+          AsmaStore
         </Link>
 
         {/* Desktop Links */}
@@ -66,7 +66,7 @@ const Navbar = () => {
 
         {/* Action Icons */}
         <div className="flex items-center gap-4 md:gap-7">
-          <Link to="/wishlist" className="hidden md:block text-slate-400 hover:text-slate-950 transition-colors">
+          <Link to="/wishlist" className="text-slate-400 hover:text-slate-950 transition-colors">
             <Heart className="w-5 h-5" />
           </Link>
 

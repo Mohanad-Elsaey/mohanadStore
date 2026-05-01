@@ -249,9 +249,9 @@ const AdminProducts = () => {
                                             <div className="flex items-center gap-4">
                                                 <img 
                                                     className="h-12 w-10 object-cover rounded-lg shadow-sm bg-surface-container-low group-hover:scale-110 transition-transform duration-500" 
-                                                    src={product.image_url || 'https://via.placeholder.com/40x48'} 
+                                                    src={product.image_url || "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='48' fill='%23dde4e5'%3E%3Crect width='40' height='48' rx='6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23adb3b4' font-size='8' font-family='sans-serif'%3EN/A%3C/text%3E%3C/svg%3E"} 
                                                     alt={product.name} 
-                                                    onError={(e) => { e.target.src = 'https://via.placeholder.com/40x48?text=N/A' }}
+                                                    onError={(e) => { e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='48' fill='%23dde4e5'%3E%3Crect width='40' height='48' rx='6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23adb3b4' font-size='8' font-family='sans-serif'%3EN/A%3C/text%3E%3C/svg%3E" }}
                                                 />
                                                 <div>
                                                     <p className="font-bold text-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">{product.name}</p>

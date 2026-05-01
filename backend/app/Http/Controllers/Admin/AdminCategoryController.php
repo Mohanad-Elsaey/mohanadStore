@@ -101,6 +101,11 @@ class AdminCategoryController extends Controller
             ], 422);
         }
 
+        // Delete category image from storage
+        if ($category->image) {
+            Storage::disk('public')->delete($category->image);
+        }
+
         $category->delete();
 
         return response()->json(['message' => 'Category deleted successfully']);

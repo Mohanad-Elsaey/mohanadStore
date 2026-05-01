@@ -57,6 +57,10 @@ export const deleteAdminProduct = async (id) => {
     await axiosInstance.delete(`/admin/products/${id}`);
 };
 
+export const deleteProductImage = async ({ productId, imageId }) => {
+    await axiosInstance.delete(`/admin/products/${productId}/images/${imageId}`);
+};
+
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // ORDERS
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

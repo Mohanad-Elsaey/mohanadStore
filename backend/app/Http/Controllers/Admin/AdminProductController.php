@@ -61,7 +61,7 @@ class AdminProductController extends Controller
             'is_featured' => 'boolean',
             'images.*' => 'nullable|image|mimes:jpeg,png,webp|max:10240',
             'variants' => 'nullable|array',
-            'variants.*.type' => 'required|in:color,size',
+            'variants.*.type' => 'required|in:color,size,material',
             'variants.*.value' => 'required|string',
             'variants.*.price_override' => 'nullable|numeric|min:0',
             'variants.*.stock' => 'required|integer|min:0',
@@ -117,7 +117,7 @@ class AdminProductController extends Controller
             'is_featured' => 'boolean',
             'images.*' => 'nullable|image|mimes:jpeg,png,webp|max:10240',
             'variants' => 'nullable|array',
-            'variants.*.type' => 'required|in:color,size',
+            'variants.*.type' => 'required|in:color,size,material',
             'variants.*.value' => 'required|string',
             'variants.*.price_override' => 'nullable|numeric|min:0',
             'variants.*.stock' => 'required|integer|min:0',
@@ -160,9 +160,9 @@ class AdminProductController extends Controller
         $path = $imageFile->store('products', 'public');
         
         try {
-            // Resize image to 800x800
+            // Resize image while keeping aspect ratio (max 1200px in either dimension)
             $img = Image::read(Storage::disk('public')->path($path));
-            $img->cover(800, 800)->save();
+            $img->scaleDown(1200, 1200)->save();
         } catch (\Exception $e) {
             // Log or handle resize error if GD missing, fallback to raw upload
             \Log::error("Image resize failure: " . $e->getMessage());
@@ -182,6 +182,14 @@ class AdminProductController extends Controller
     public function destroy($id)
     {
         $product = Product::findOrFail($id);
+
+        // Delete all product images from storage
+        foreach ($product->images as $image) {
+            $filename = basename($image->image_path);
+            Storage::disk('public')->delete('products/' . $filename);
+            $image->delete();
+        }
+
         $product->delete();
 
         return response()->json(['message' => 'Product deleted successfully']);
@@ -198,9 +206,9 @@ class AdminProductController extends Controller
         foreach ($request->file('images') as $imageFile) {
             $path = $imageFile->store('products', 'public');
             
-            // Resize image to 800x800
+            // Resize image while keeping aspect ratio
             $img = Image::read(Storage::disk('public')->path($path));
-            $img->cover(800, 800)->save();
+            $img->scaleDown(1200, 1200)->save();
 
             ProductImage::create([
                 'product_id' => $product->id,

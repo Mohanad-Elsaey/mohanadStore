@@ -117,8 +117,8 @@ const AdminDashboard = () => {
                         </select>
                     </div>
                     
-                    <div className="flex-1 w-full relative z-20 min-h-[300px]">
-                        <ResponsiveContainer width="100%" height="100%">
+                    <div className="w-full relative z-20">
+                        <ResponsiveContainer width="100%" height={300}>
                             <AreaChart data={stats?.chart_data?.length ? stats.chart_data : [{date: 'No Data', total: 0}]} margin={{ top: 10, right: 0, left: 0, bottom: 0 }}>
                                 <defs>
                                     <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -163,7 +163,7 @@ const AdminDashboard = () => {
                         {stats?.top_products?.length > 0 ? stats.top_products.slice(0, 3).map((product) => (
                             <div key={product.id} className="flex items-center gap-4 cursor-pointer group" onClick={() => navigate(`/product/${product.slug}`)}>
                                 <img 
-                                    src={product.image_url || 'https://via.placeholder.com/64x80'} 
+                                    src={product.image_url || "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='80' fill='%23dde4e5'%3E%3Crect width='64' height='80' rx='8'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23adb3b4' font-size='10' font-family='sans-serif'%3ENo Img%3C/text%3E%3C/svg%3E"} 
                                     alt={product.name}
                                     className="w-16 h-20 rounded-lg object-cover bg-surface-container-low group-hover:opacity-80 transition-opacity" 
                                 />

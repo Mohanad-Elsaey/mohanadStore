@@ -7,7 +7,7 @@ const Footer = () => {
             <div className="max-w-screen-2xl mx-auto px-8 md:px-16 grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-12">
                 <div className="lg:col-span-2">
                     <Link to="/" className="text-2xl font-bold tracking-tighter text-on-surface dark:text-zinc-100 mb-6 block uppercase">
-                        MOHANAD
+                        AsmaStore
                     </Link>
                     <p className="text-on-surface-variant dark:text-zinc-500 max-w-sm mb-8">
                         High-end fashion atelier focusing on minimalist luxury and artisanal craftsmanship. Designed for the Digital Atelier.
@@ -58,7 +58,7 @@ const Footer = () => {
             
             <div className="max-w-screen-2xl mx-auto px-8 md:px-16 mt-20 pt-10 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center gap-6">
                 <div className="text-primary dark:text-zinc-400 text-[10px] tracking-[0.1em] font-semibold uppercase">
-                    © 2026 MOHANAD ATELIER. ALL RIGHTS RESERVED.
+                    © 2026 AsmaStore ATELIER. ALL RIGHTS RESERVED.
                 </div>
                 <div className="flex gap-8">
                     <Link to="/privacy" className="text-on-surface-variant dark:text-zinc-500 hover:text-primary dark:hover:text-zinc-300 transition-colors duration-400 ease-out cursor-pointer text-[10px] tracking-[0.1em] font-semibold uppercase">Privacy Policy</Link>

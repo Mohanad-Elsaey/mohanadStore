@@ -251,7 +251,7 @@ const ProfilePage = () => {
                                                         <div className="w-16 h-20 rounded-xl bg-surface overflow-hidden flex-shrink-0">
                                                             <img 
                                                                 className="w-full h-full object-cover" 
-                                                                src={firstItem?.product?.images?.[0]?.image_path || 'https://via.placeholder.com/64x80'} 
+                                                                src={firstItem?.product?.images?.[0]?.image_path || "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='80' fill='%23dde4e5'%3E%3Crect width='64' height='80' rx='8'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23adb3b4' font-size='10' font-family='sans-serif'%3ENo Img%3C/text%3E%3C/svg%3E"} 
                                                                 alt={firstItem?.name || "Order Thumbnail"} 
                                                             />
                                                         </div>

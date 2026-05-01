@@ -36,7 +36,7 @@ const AdminLayout = () => {
             <aside className={`fixed lg:static inset-y-0 left-0 h-full w-64 bg-surface lg:bg-transparent border-r border-surface-container-low lg:border-transparent flex flex-col py-8 z-50 transition-transform duration-500 lg:translate-x-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
                 <div className="px-8 mb-12 flex justify-between items-center">
                     <Link to="/admin" className="block" onClick={() => setIsSidebarOpen(false)}>
-                        <h1 className="text-2xl font-bold tracking-tighter text-on-surface">Mohanad</h1>
+                        <h1 className="text-2xl font-bold tracking-tighter text-on-surface">AsmaStore</h1>
                         <p className="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/60 font-semibold mt-1">Admin Atelier</p>
                     </Link>
                     <button onClick={() => setIsSidebarOpen(false)} className="lg:hidden text-on-surface-variant hover:text-on-surface">
